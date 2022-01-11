@@ -36,6 +36,12 @@ export const changeActiveLinkLabel = (reduxUid, value) => ({
   propName: 'label',
   value,
 });
+export const changeActiveLinkCounter = (reduxUid, value) => ({
+  type: 'CHANGE_ACTIVE_COUNTER',
+  reduxUid,
+  propName: 'counter',
+  value,
+});
 export const changeActiveLinkFromLocation = reduxUid => ({
   type: 'CHANGE_ACTIVE_LINK_FROM_LOCATION',
   reduxUid,

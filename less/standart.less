@@ -92,6 +92,7 @@
 
 .metismenu-link {
   color: @fg;
+  position: relative;
 
   .text-shadow(0 -1px 0 fade(#000, 50%));
   .transition(height @effect-duration, color @effect-duration, background-color @effect-duration);
@@ -131,4 +132,22 @@ I.metismenu-state-icon {
   &.rotate-minus-90 {
     .transform(rotate(-90deg));
   }
+}
+
+.metismenu-badge{
+  position: absolute;
+  right: 20%;
+  border-radius: 50%;
+  display: flex;
+  top: 0.2em;
+  padding: 0 .5em;
+  justify-content: center;
+  align-items: center;
+  height: 2em;
+}
+.metismenu-badge.is-small{
+    background: orange;
+}
+.metismenu-badge.is-big{
+    background: red;
 }

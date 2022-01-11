@@ -19,6 +19,7 @@ const flattenLevel = (content, parentId) => {
       icon: item.icon,
       label: item.label,
       to: item.to,
+      counter: item.counter,
       externalLink: item.externalLink,
       active: false,
       hasActiveChild: false,

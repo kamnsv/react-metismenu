@@ -27,6 +27,7 @@ const Container = ({
     )}
   >
     {items.map((item, i) => (
+      //console.log(item)
       <Item key={item.id || `_${i}`} reduxStoreName={reduxStoreName} reduxUid={reduxUid} {...item} />
     ))}
   </ul>

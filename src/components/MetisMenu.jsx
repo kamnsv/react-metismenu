@@ -21,6 +21,7 @@ import {
   changeActiveLinkTo,
   changeActiveLinkLabel,
   changeActiveLinkFromLocation,
+  changeActiveLinkCounter
 } from '../actions/content';
 import { updateListener } from '../actions/emitters';
 
@@ -99,6 +100,7 @@ class MetisMenu extends React.Component {
       iconNamePrefix: props.iconNamePrefix,
       iconNameStateHidden: props.iconNameStateHidden,
       iconNameStateVisible: props.iconNameStateVisible,
+      badgeCounter: props.badgeCounter
     };
   }
 
@@ -141,8 +143,12 @@ class MetisMenu extends React.Component {
   changeActiveLinkFromLocation() {
     this.store.dispatch(changeActiveLinkFromLocation(this.reduxUid));
   }
+  changeActiveLinkCounter(value) {
+    this.store.dispatch(changeActiveLinkCounter(this.reduxUid, value));
+  }
 
   updateActiveLink(props) {
+    this.changeActiveLinkCounter(props.activeLinkCounter);
     if (props.activeLinkId) this.changeActiveLinkId(props.activeLinkId);
     else if (props.activeLinkTo) this.changeActiveLinkTo(props.activeLinkTo);
     else if (props.activeLinkLabel) this.changeActiveLinkLabel(props.activeLinkLabel);
@@ -214,6 +220,7 @@ MetisMenu.defaultProps = {
   activeLinkId: null,
   activeLinkTo: null,
   activeLinkLabel: null,
+  activeLinkCounter: 0,
   activeLinkFromLocation: false,
   onSelected: null,
   useExternalReduxStore: null,
@@ -259,10 +266,12 @@ MetisMenu.propTypes = {
   activeLinkTo: PropTypes.string,
   activeLinkLabel: PropTypes.string,
   activeLinkFromLocation: PropTypes.bool,
-
+  activeLinkCounter: PropTypes.number,
   onSelected: PropTypes.func,
   useExternalReduxStore: PropTypes.object,
   reduxStoreName: PropTypes.string,
+
+
 };
 
 MetisMenu.childContextTypes = {

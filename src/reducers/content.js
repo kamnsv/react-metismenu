@@ -18,6 +18,7 @@ const item = (state, action) => {
           : action.trace.indexOf(state.id) !== -1,
       });
     }
+    case 'CHANGE_ACTIVE_COUNTER':
     case 'CHANGE_ACTIVE_LINK_FROM_LOCATION':
     case 'CHANGE_ACTIVE_LINK': {
       return Object.assign({}, state, {
@@ -42,6 +43,7 @@ const content = (state = [], action) => {
       return state.map(i => item(i, action));
     }
     case 'CHANGE_ACTIVE_LINK_FROM_LOCATION':
+    case 'CHANGE_ACTIVE_COUNTER':
     case 'CHANGE_ACTIVE_LINK': {
       let activeItem;
       if (action.type === 'CHANGE_ACTIVE_LINK_FROM_LOCATION') {

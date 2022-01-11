@@ -18,8 +18,9 @@ const menu1 = [
   {
     id: 1,
     icon: 'dashboard',
-    label: 'Menu 1',
+    label: 'Menu 66',
     to: '#menu-1',
+    counter: 8
   },
   {
     id: 2,
@@ -223,7 +224,7 @@ class App extends React.Component {
             <br />
             <button
               onClick={() => {
-                this.setState({ activeLinkId: 2, activeLinkLabel: null });
+                this.setState({ activeLinkId: 1, activeLinkCounter: 2 });
               }}
             >
               2 (Menu 2 Id)

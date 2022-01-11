@@ -9,11 +9,25 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Container from '../containers/Container';
 
+function Badge(props)
+{
+  if (!props.counter) return (null);
+
+  let classBadge = 'metismenu-badge';
+  let classModif = props.counter > 5 ? ' is-big' : ' is-small';
+  return  (<span className={classBadge + classModif}>
+    {props.counter}
+  </span>);
+}
+
+
+
 const Item = ({
   id,
   icon,
   label,
   to,
+  counter,
   externalLink,
   hasSubMenu,
   active,
@@ -44,6 +58,7 @@ const Item = ({
       id={id}
       to={to}
       label={label}
+      counter={counter}
       externalLink={externalLink}
       hasSubMenu={hasSubMenu}
       toggleSubMenu={toggleSubMenu}
@@ -51,6 +66,7 @@ const Item = ({
     >
       <i className={classnames(classStore.classIcon, classStore.iconNamePrefix + icon)} />
       {label}
+      <Badge counter={counter}/>
       {hasSubMenu && <i
         className={classnames(
           classStore.classStateIcon,
@@ -77,6 +93,7 @@ Item.defaultProps = {
   to: null,
   externalLink: false,
   toggleSubMenu: null,
+  counter: 0
 };
 
 Item.propTypes = {
@@ -91,6 +108,7 @@ Item.propTypes = {
     PropTypes.string,
   ]),
   to: PropTypes.string,
+  counter: PropTypes.number,
   externalLink: PropTypes.bool,
   hasSubMenu: PropTypes.bool.isRequired,
   active: PropTypes.bool.isRequired,
